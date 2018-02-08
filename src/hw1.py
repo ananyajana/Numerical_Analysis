@@ -35,9 +35,22 @@ for n in range(1,16):
 	print('value=', value)
 	error = log(3) - value
 	print('error = ', error)
-	
+
+
+# computing f(x) = exp(x)*sin(x) for different values of x	
 print('Computing f(x) = exp(x)*sin(x) values');
 for m in range(1,9):
 	p1 = x + x**2 + (x**3)/3 - (x**5)/30
 	value2 = p1.subs(x, m)
 	print('value2=', value2)
+
+
+
+# computing f(x) = log(1 + x)- log(1 - x) for different values of x	
+print('Computing f(x) = log(1 + x)- log(1 - x) values');
+l = 0.5
+while (l < 1):
+	p2 = (2 * x) + (2*(x**3))/3 + (2 * (x**5))/5
+	value4 = p2.subs(x, l)
+	print('value2=',value4)
+	l = l + 0.1;
