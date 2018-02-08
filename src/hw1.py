@@ -35,3 +35,9 @@ for n in range(1,16):
 	print('value=', value)
 	error = log(3) - value
 	print('error = ', error)
+	
+print('Computing f(x) = exp(x)*sin(x) values');
+for m in range(1,9):
+	p1 = x + x**2 + (x**3)/3 - (x**5)/30
+	value2 = p1.subs(x, m)
+	print('value2=', value2)
