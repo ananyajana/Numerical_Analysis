@@ -25,3 +25,13 @@ for i in range(1, 6):
 
 
 # computing log(3) using the general formula for different values of n
+print('Computing log(3)')
+sum = 0
+prod = 1
+for n in range(1,16):
+	prod = prod * x;
+	sum = sum + ((n % 2) * 2 * prod) / n
+	value = sum.subs(x, 0.5)
+	print('value=', value)
+	error = log(3) - value
+	print('error = ', error)
