@@ -19,7 +19,7 @@ for i in range(1, 6):
 	z1 = z1.subs(x, 0)
 	print('z1 = ',z1)
 	
-	z2 = diff(f1, x, i)
+	z2 = diff(f2, x, i)
 	z2 = z2.subs(x, 0)
 	print('z2 = ',z2)
 
@@ -42,6 +42,7 @@ print('Computing f(x) = exp(x)*sin(x) values');
 for m in range(1,9):
 	p1 = x + x**2 + (x**3)/3 - (x**5)/30
 	value2 = p1.subs(x, m)
+	repr(value2)
 	print('value2=', value2)
 
 
@@ -52,5 +53,6 @@ l = 0.5
 while (l < 1):
 	p2 = (2 * x) + (2*(x**3))/3 + (2 * (x**5))/5
 	value4 = p2.subs(x, l)
+	repr(value4)
 	print('value2=',value4)
 	l = l + 0.1;
