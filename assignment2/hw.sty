@@ -1,0 +1,75 @@
+%
+%       TeX macros for generating homeworks, exams and solutions
+%               Dave Mount - 10/17/86
+%
+%            Modified by Jiang-Hsing Chu
+%
+%       The following are defined:
+%
+%       Environments:  solution
+%       Commands:  hwhead, solhead, exhead
+%  ---------------------------------------------------------
+%
+%  page structure
+%
+\topmargin=-.32in               %  .68 (true) inches above header
+\headsep=.4in                   %  head to text sep (text is 1.25 from top)
+\textheight=8.5in               %  height of text
+\textwidth=6in                  %  width of text
+\oddsidemargin=.15in            %  left margin 1.25 (true) inches
+\evensidemargin=.25in
+\parindent 0pt
+\def\titleline#1#2#3{\hbox to \hsize{#1\hfill#2\hfill#3}}
+%\def\semester{Summer I~1991}
+%\def\course{CMSC~451}
+\def\prof{email ananya.jana@rutgers.edu}
+%
+%       hwhead - print page header for homeworks
+%
+%               \hwhead{problem set name}{duedate}
+%
+\newcommand{\hwhead}[2]{
+    \titleline{\semester}{{ \course }}{\prof}
+    \vspace{.25in}
+}
+%
+%       exhead - print page header for exams
+%
+%               \exhead{exam name}
+%
+\newcommand{\exhead}[1]{
+    \titleline{\semester}{}{\prof}
+    \begin{center}
+        {\bf \course: #1} \\
+    \end{center}
+    \vspace{.25in}
+}
+%
+%       solhead - print page header for solutions
+%
+%               \solhead{problem set name}
+%
+\newcommand{\solhead}[1]{
+    \titleline{\semester}{}{\prof}
+    \begin{center}
+        {\bf \course}\\
+        {\bf Solutions to #1}\\
+    \end{center}
+}
+%
+%       solution environment
+%
+%               \begin{solution}{number}
+%                  ... solution here
+%               \end{solution}
+%
+\newenvironment{solution}[1]{\beginsolution{#1}}{}
+\def\beginsolution#1{
+    \par\bigskip
+    \noindent
+    {\bf Solution #1.}
+    \par
+}
+
+\pagestyle{empty}
+\newtheorem{theorem}{Theorem}

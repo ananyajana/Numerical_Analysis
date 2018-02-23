@@ -1,0 +1,74 @@
+\documentstyle[12pt,fullpage,hw]{article}
+
+
+\def\semester{Ananya Jana}
+\def\course{netID: aj611}
+
+%\setlength{\parskip}{0.3in}
+\begin{document}
+
+\hwhead{\#2 }{Feb 20, 10 am}
+
+\begin{enumerate}
+\item Taylor's polynomial approximating a function is given by
+\begin{list}{}{}
+\item  $P_n(x)=f(a) + \sum_{j=1}^{n}\frac{f^{(j)}(a){(x - a)^j}}{j!}$\\
+\end{list}
+{\bf i)Deriving Newton's method:}\\The tangent line at the point $x_0$ is the first degree Taylor's polynomial $P_1(x) = f(x_0) +
+f'(x_0 )(x - x_0 )$\\
+This polynomial has root at the next point $x_1$. Hence $P_1(x_1)= 0$.\\ Replacing x with $x_1$ in Taylor's polynomial and then equating it to 0, we get $f(x_0) + f'(x_0 )(x_1 - x_0 ) = 0$\\
+$f'(x_0 )(x_1 - x_0 ) = -f(x _0)$\\
+$(x_1 - x_0 ) = -f(x_0)/f'(x_0 )$\\
+$x_1 = x_0 -f(x_0)/f'(x_0 )$\\
+
+If $x_0$ is very close to the root of the function $f(x)$, then the root of $P_1(x)$ i.e. $x_1$ would be closer to the root of the function $f(x)$. Next we can draw another tangent to the function $f(x)$ at the point $x_1$. This line would
+be the first degree Taylor's polynomial $P_1(x) = f(x_1) + f'(x_1 )(x - x_1)$. Let's say, the root of this polynomial is $x_2$. Similar to previous method, we can derive \\
+$x_2 = x_1 -f(x_1)/f'(x_1 )$\\
+In this we can continue to move closer to the root of the function $f(x)$ with every iteration and we stop when the root
+of the polynomial is sufficiently close to the root of the function. As seen from above, at each iteration, we figure out the next point where to draw the tangent by the following equation
+$x_{n+1} = x_n -f(x_n)/f'(x_n )$\\
+This is Newton's method.\\
+{\bf Error:}\\
+We know from Taylor's formula\\
+$f(x) = P_n(x) + R_n(x)$\\
+In order to derive Newton's method, we used the first order polynomial. Hence, in our case,
+$f(x) = P_1(x) + R_1(x)$\\
+Let's assume \textit{p} is the root of f(x). We expand f(\textit{p}) about x = $x_n$\\
+$f(\textit{p}) = f(x_n) + (\textit{p} - {x_n})f'(x_n ) + {\frac{1}{2}}{(\textit{p} - {x_n})^2}f''({\sigma}_n)$
+for some ${\sigma}_n$ which lies between \textit{p} and $x_n$. Since \textit{p} is a root of f(x), we know $f(\textit{p}) = 0$; Hence,\\
+$0 = f(x_n) + (\textit{p} - {x_n})f'(x_n ) + {\frac{1}{2}}{(\textit{p} - {x_n})^2}f''({\sigma}_n)$\\
+Dividing both sides by of this equation by $f'(x_n )$, we have \\
+$0 = {\frac{f(x_n)}{f'(x_n )}} + (\textit{p} - {x_n}) + {(\textit{p} - {x_n})^2}{\frac{f''({\sigma}_n)}{2f'(x_n )}}$\\
+Or,$0 = ({\frac{f(x_n)}{f'(x_n )}} - {x_n}) +\textit{p} + {(\textit{p} - {x_n})^2}{\frac{f''({\sigma}_n)}{2f'(x_n )}}$\\
+From Newton's formula, we know that,
+$x_{n+1} = x_n -f(x_n)/f'(x_n )$\\
+Hence, $0 = - x_{n+1} +\textit{p} + {(\textit{p} - {x_n})^2}{\frac{f''({\sigma}_n)}{2f'(x_n )}}$\\
+Or, $x_{n+1} - \textit{p} = {({x_n} - \textit{p})^2}{\frac{f''({\sigma}_n)}{2f'(x_n )}}$\\
+ $\left|{x_{n+1} - \textit{p}} \right| = \left|{{({x_n} - \textit{p})^2}{\frac{f''({\sigma}_n)}{2f'(x_n )}}}\right|$\\
+
+
+{\bf ii)Using Newton's formula to solve equations:}\\
+a) We know that $M = {\frac{f''({\sigma}_n)}{2f'(x_n )}}$. Our function is $f(x) = x^2 - 2$. Hence $f'(x) = 2x$ and $f''(x) = 2$. Here we want to check the convergence for our initial choice of point. Hence $x = x_0$. Replacing the values of the derivatives we get, $M = 1/(2*{x_0}$. Clearly when $x_0 = 0$, M beomes infinity and hence Newton's method will not converge. But for other values of x, the value of M is going to be finite and the method will converge.
+The results are given in the Q1\textunderscore results.txt file\\ \\
+b) In this case the value of $M$ is always = 1/2. This is because both $f'(x) = e^x$. Hence $f''(x) = e^x$. This converges for every value of x. The root ofthe equation is $x = 0$. The steps of convergence to the root using Newton's method is given in  Q1\textunderscore results.txt file.
+
+{\bf Q2: Newton's method and bisection method comparison:} 
+We have found the roots of the given equation using both the methods. They are given in file Q2.txt.
+In Newton’s Method, we needed only 4 iterations to achieve similar level of accuracy as compared to the bisection method which took 14 iterations to reach the same level of accuracy.
+The reason for this behavior could be derived from the fact that where bisection method keeps halving the error in every step, Newton’s method does so exponentially.
+\\ \\
+{\bf Q3}\\
+The matlab progra is attached.\\
+\\
+{\bf Q4: Root of $e^{-x} = x$ and its rate of convergence:} \\ \\
+We have the function $f(x) = x * {e^x} -  1$. We know that $M_n = {\frac{f''({\sigma}_n)}{2f'(x_n )}}$
+At the point $x = -1$, $M_n$ becomes infnity. Hence we can't determine the convergence  at that point. For values $x \textless -1$, Newton's method doesn't converge. But Newton's method converges for values of $x \textgreater -1$. We can see from the images Q4.jpg and Q4\textunderscore larger\textunderscore interval.jpg, the graphs of this equation. Results for the values $x = -2, 0.5, 10$ are provided in the file Q4\textunderscore Results.txt. The convergence is very slow t the point $x = 10$ whereas the convergence is faster near the root e.g. at $x = 0.5$.\\
+   Newton's method in this case doesn't converge for all values of $x$. 
+   
+{\bf Q5:} 
+Here $g(x_n) = {\frac{{x_n}^3 + 3ax}{3{x_n}^2 +a}}$. We want to calculate the value of $\sqrt{a}$ using this. We have $g'(x) = {\frac{(3*{x^2} + 3*a)}{(3*{x^2} + a)}} - {\frac{(6*x*(x^3 + 3*a*x))}{{(3*x^2 + a)}^2}}$\\ 
+$g'(\sqrt{a}) = 0$. This means the method is quadratically convergent or better.\\
+
+
+\end{enumerate}
+\end{document}
