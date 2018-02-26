@@ -18,8 +18,8 @@ def fixed_point(x0, error_bd, max_iterate):
 	#g = 3 - 2/x;
 	#g = sqrt(3*x - 2);
 	#g = (x^2 + 2)/3;
-
-	it _count = 0
+	
+	it_count = 0
 	x1 = x0;
 	x2 = g.subs(x, x1);
 	print('x1 g(x) error');
