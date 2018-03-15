@@ -7,7 +7,7 @@ import pdb
 def fixed_point(x0, error_bd, max_iterate):
 	x0 = float(x0)
 	error_bd = float(error_bd)
-	max_iterate = float(max_iterate)
+	max_iterate = int(max_iterate)
 	
 	x = Symbol('x')
 	z = Symbol('z')
@@ -24,9 +24,11 @@ def fixed_point(x0, error_bd, max_iterate):
 	x2 = g.subs(x, x1);
 	print('x1 g(x) error');
 	while ((abs(x2-x1) > error_bd) and (it_count <= max_iterate)):
+	#while (it_count <= max_iterate):
     		x1 = x2;
     		x2 = g.subs(x, x1);
     		print(x1, x2, abs(x2-x1));
+    		it_count += 1;
 
 
 x0 = input('x0 = ')
