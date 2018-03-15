@@ -13,18 +13,17 @@ def fixed_point(x0, error_bd, max_iterate):
 	z = Symbol('z')
 
 	f = x^2 - 3*x + 2;
-	g= 2*x - 3;
-	#g =(x^2 - 2)*(2*x - 3);
+	#g= 2*x - 3;
+	#g =(x**2 - 2)*(2*x - 3);
 	#g = 3 - 2/x;
 	#g = sqrt(3*x - 2);
-	#g = (x^2 + 2)/3;
+	g = (x**2 + 2)/3;
 	
 	it_count = 0
 	x1 = x0;
 	x2 = g.subs(x, x1);
 	print('x1 g(x) error');
 	while ((abs(x2-x1) > error_bd) and (it_count <= max_iterate)):
-	#while (it_count <= max_iterate):
     		x1 = x2;
     		x2 = g.subs(x, x1);
     		print(x1, x2, abs(x2-x1));
