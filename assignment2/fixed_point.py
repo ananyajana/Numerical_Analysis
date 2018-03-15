@@ -2,6 +2,8 @@
 # Program for fixed point iteration
 from math import sin, exp, log
 from sympy import *
+import numpy as np
+import matplotlib.pyplot as plt
 import pdb
 
 def fixed_point(x0, error_bd, max_iterate):
@@ -18,6 +20,15 @@ def fixed_point(x0, error_bd, max_iterate):
 	#g = 3 - 2/x;
 	#g = sqrt(3*x - 2);
 	g = (x**2 + 2)/3;
+	
+	#plotting the function
+	xvals = np.arange(-2, 1, 0.01)
+	yvals = (xvals**2 + 2)/3
+	#yvals = np.cos(xvals)
+	#yvals = np.((xvals**2 + 2)/3)
+	#yvals = np.g(xvals)
+	plt.plot(xvals, yvals)
+	plt.show()
 	
 	it_count = 0
 	x1 = x0;
