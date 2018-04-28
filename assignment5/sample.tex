@@ -1,0 +1,315 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\begin{document}
+Assignment 5\\
+Ananya Jana, netID: aj611\\
+\\
+{\bf Q.2}\\
+The modified Newton's program for 2 variables is {\it modifiednewtontwovar.m}.\\
+{\bf a)}\\
+The solution is: Value of x and y: \\
+   x = ${\pm}$1.581138830084190\\
+   y = ${\pm}$1.224744871391589\\
+\\
+Below, we have shown the results for the initial point(x, y) = (1, 1).\\
+\\
+Attaching the matlab output snippet for the modifiednewtontwovar.m\\
+Choose 1 for part a, Choose 2 for part b: 1\\
+Number of iterations: 15\\
+   1.750000000000000\\
+   1.250000000000000\\
+\\
+   0.790569415042095\\
+\\
+   1.589285714285714
+   1.225000000000000\\
+\\
+   0.162647107667653\\
+\\
+   1.581159711075441\\
+   1.224744897959184\\
+\\
+   0.008130006471375\\
+\\
+   1.581138830222068\\
+   1.224744871391589\\
+\\
+     2.088087027479742e-05\\
+\\
+   1.581138830084190\\
+   1.224744871391589\\
+\\
+Iteration number:\\ 
+     3\\
+\\
+Value of x and y: \\
+   1.581138830084190\\
+   1.224744871391589\\
+\\
+When we take other starting values of (x, y) as (1, -1), (-1, 1) and (-1, -1), we can obtain the other solutions using the same program.\\
+\\
+{\bf b)}\\
+The solution is: Value of x and y: \\
+x = 1.945026819131982\\
+   y = 0.673007169617913\\
+\\
+Attaching the matlab output snippet for the modifiednewtontwovar.m\\
+Choose 1 for part a, Choose 2 for part b: 2\\
+Number of iterations: 15\\
+   2.250000000000000\\
+   0.375000000000000\\
+\\
+   0.976281209488332\\
+\\
+   1.993518518518518\\
+   0.624537037037037\\
+\\
+   0.357842819120573\\
+\\
+   1.946743715555195\\
+   0.671290273402707\\
+\\
+   0.066134312598847\\
+\\
+   1.945029130257479\\
+   0.673004858492416\\
+\\
+   0.002424789634791\\
+\\
+   1.945026819136181\\
+   0.673007169613714\\
+\\
+     3.268419084416970e-06\\
+\\
+   1.945026819131982\\
+   0.673007169617913\\
+
+Iteration number: \\
+     4\\
+\\
+Value of x and y: \\
+   1.945026819131982\\
+   0.673007169617913\\
+\\
+{\bf c)} The generalized program for 3 variables is {\it generalnewtonthreevar.m}\\
+We use 4 initial starting points and obtain the corresponding roots of the given equation for those.\\
+Initial point: (1, 1, 1)\\
+Roots: x = 2.449489742783178, y = 2.449489742783178, z = 2\\
+\\
+Initial point: (1, -2, -1)\\
+Roots: x = 0.585786437626905, y = -3.414213562373095, z = -2\\
+\\
+Initial point: (-1, -1, 1)\\
+Roots: x = -2.449489742783178, y = -2.449489742783178, z = 2\\
+\\
+Initial point: (2, -1, 11)\\
+Roots: x = 3.414213562373095, y = -0.585786437626905, z = -2\\
+\\
+\\
+{\bf Q.1}\\
+{\bf a)} We have, $z^{(0)} = \sum_{j=1}^{n}{a_j}{x_j}$  where $x_j$ are the Eigen vectors corresponding to Eigen values ${\lambda}_j$.\\ \\
+${A^m}{z^{(0)}} = {A^m}\sum_{j=1}^{n}{a_j}{x_j} = \sum_{j=1}^{n}{a_j}{A^m}{x_j}$\\
+{\bf Proof:}\\
+We will prove that ${A^m}{z^{(0)}} = \sum_{j=1}^{n}{a_j}{{{\lambda}_j}^m}{x_j}$ by using Induction and then move on to the next part of the proof.\\
+Basis$(m = 1)$:\\
+${A^m}{z^{(0)}} = {A}\sum_{j=1}^{n}{a_j}{x_j} $\\
+$= \sum_{j=1}^{n}{a_j}{A}{x_j}$\\ 
+$= \sum_{j=1}^{n}{a_j}{{\lambda}_j}{x_j}$\\
+This is because of the fact that for the j{\it th} Eigen value and Eigen vector, we have ${A}{x_j} = {{\lambda}_j}{x_j}$\\
+\\
+Let us assume that ${A^m}{z^{(0)}} = \sum_{j=1}^{n}{a_j}{{{\lambda}_j}^m}{x_j}$  holds good for $m = k$.
+Hence, ${A^k}{z^{(0)}} = \sum_{j=1}^{n}{a_j}{{{\lambda}_j}^k}{x_j}$   -Eqn.(1)\\
+\\
+Let us check this for $m = k + 1$.\\
+${A^{k+1}}{z^{(0)}} = A.{A^k}{z^{(0)}}$\\
+$ = A\sum_{j=1}^{n}{a_j}{{{\lambda}_j}^k}{x_j}$ [From Eqn. (1)]\\
+$ = \sum_{j=1}^{n}{a_j}{{{\lambda}_j}^k}A{x_j}$\\
+$ = \sum_{j=1}^{n}{a_j}{{{\lambda}_j}^k}{{\lambda}_j}{x_j}$ [As we already know ${A}{x_j} = {{\lambda}_j}{x_j}$]\\
+$ = \sum_{j=1}^{n}{a_j}{{{\lambda}_j}^{k+1}}{x_j}$\\
+\\
+Hence we proved by Induction that ${A^m}{z^{(0)}} = \sum_{j=1}^{n}{a_j}{{{\lambda}_j}^m}{x_j}$ is true.
+\\
+We have ${A^m}{z^{(0)}} = \sum_{j=1}^{n}{a_j}{{{\lambda}_j}^m}{x_j}$\\
+$ = {a_1}{{{\lambda}_1}^m}{x_1} + {a_2}{{{\lambda}_2}^m}{x_2} + .... + {a_n}{{{\lambda}_n}^m}{x_n}$\\
+Let us assume, ${{\lambda}_1}$ is the largest Eigen value. Hence on dividing by ${{{\lambda}_1}^m}$ the expression,we get\\
+$ = {{{\lambda}_1}^m}({a_1}{x_1} + \frac{{{\lambda}_2}^m}{{{\lambda}_1}^m}{a_2}{x_2} + .... + \frac{{{\lambda}_n}^m}{{{\lambda}_1}^m}{a_n}{x_n})$ -Eqn.(2)\\
+Since ${{\lambda}_1}$ is the largest Eigen value, $\left|\frac{{\lambda}_j}{{\lambda}_1}\right| < 1$ for all $2 \leq j \leq n$\\
+As $m \rightarrow \infty$,  $\left|\frac{{{\lambda}_j}^m}{{{\lambda}_1}^m}\right| \rightarrow 0$ -Eqn.(3) for all $2 \leq j \leq n$\\
+\\
+Using this, we can rewrite the Eqn.(2) as\\
+${A^m}{z^{(0)}} = {{{\lambda}_1}^m}({a_1}{x_1} + \frac{{{\lambda}_2}^m}{{{\lambda}_1}^m}{a_2}{x_2} + .... + \frac{{{\lambda}_n}^m}{{{\lambda}_1}^m}{a_n}{x_n})$\\
+$ = {{{\lambda}_1}^m}({a_1}{x_1} + \sum_{j=2}^{n}\frac{{{\lambda}_j}^m}{{{\lambda}_1}^m}{a_j}{x_j})$\\
+$ = {{{\lambda}_1}^m}({a_1}{x_1} + \sum_{j=2}^{n}0.{a_j}{x_j})$\\
+$ =  {{{\lambda}_1}^m}{a_1}{x_1}$\\
+\\
+Here $a$ is an arbitrary constant which doesn't affect the vector $x_1$.
+Hence we can say, ${A^m}{z^{(0)}} \rightarrow {{{\lambda}_1}^m}{x_1}$\\
+\\
+{\bf b)} ${{{\lambda}_1}^{(m)}} =  \frac{{w_k}^{(m)}}{{z_k}^{(m)}}$ -Eqn.(1) and ${{\lambda}_1}$ is the largest Eigen value.
+i.e $\left|{{\lambda}_1} \right| > \left|{{\lambda}_2} \right| > ..... > \left|{{\lambda}_n} \right|$.\\
+$z^{(0)} = {c_1}{v^{(1)}} + {c_2}{v^{(2)}} + ...+ {c_n}{v^{(n)}}$ where $c_1, c_2, ... c_n$ are constants and $v^{(1)}, v^{(2)}, .. v^{(n)}$ are the Eigen vectors\\
+$z^{(m - 1)} = A^{m - 1}z^{(0)}$\\
+$ = \sum_{i=1}^{n}{c_i}{{{\lambda}_i}^{(m-1)}}{v^{(i)}}$\\
+$ = {{{\lambda}_1}^{(m-1)}}({c_1}{v^{(1)}} + \sum_{i=2}^{n}\frac{{{\lambda}_i}^{(m-1)}}{{{\lambda}_1}^{(m-1)}}{c_i}{v^{(i)}})$ -Eqn.(3)\\
+\\
+$w^m = Az^{(m - 1)}$\\
+$ = A\sum_{i=1}^{n}{c_i}{{{\lambda}_i}^{(m-1)}}{v^{(i)}}$\\
+$ = \sum_{i=1}^{n}{c_i}{{{\lambda}_i}^{(m-1)}}A{v^{(i)}}$\\
+$ = \sum_{i=1}^{n}{c_i}{{{\lambda}_i}^{(m-1)}}{{\lambda}_i}{v^{(i)}}$  As we know from the Eigen value property that $A{v^{(i)}} = {{\lambda}_i}{v^{(i)}}$\\
+$ = \sum_{i=1}^{n}{c_i}{{{\lambda}_i}^{(m)}}{v^{(i)}}$\\
+$ = {c_1}{{{\lambda}_1}^{(m)}}{v^{(1)}} + {c_2}{{{\lambda}_2}^{(m)}}{v^{(2)}} + ....  + {c_n}{{{\lambda}_n}^{(m)}}{v^{(n)}}$\\
+$ = {{{\lambda}_1}^{(m)}}({c_1}{v^{(1)}} + \frac{{{\lambda}_2}^{(m)}}{{{\lambda}_1}^{(m)}}{c_2}{v^{(2)}} + ....  +  \frac{{{\lambda}_n}^{(m)}}{{{\lambda}_1}^{(m)}}{c_n}{v^{(n)}})$ -Eqn.(3)\\
+\\
+From the Eqns (1), (2),(3), we can write,\\
+${{{\lambda}_1}^{(m)}} = \frac{{{{\lambda}_1}^{(m)}}({c_1}{v^{(1)}} + \frac{{{\lambda}_2}^{(m)}}{{{\lambda}_1}^{(m)}}{c_2}{v^{(2)}} + ....  +  \frac{{{\lambda}_n}^{(m)}}{{{\lambda}_1}^{(m)}}{c_n}{v^{(n)}})}{{{{\lambda}_1}^{(m-1)}}({c_1}{v^{(1)}} + \frac{{{\lambda}_2}^{(m-1)}}{{{\lambda}_1}^{(m-1)}}{c_2}{v^{(2)}} + ....  +  \frac{{{\lambda}_n}^{(m-1)}}{{{\lambda}_1}^{(m-1)}}{c_n}{v^{(n)}})}$ -Eqn.(4)\\
+Since $\left|{{\lambda}_1} \right| > \left|{{\lambda}_2} \right| > ..... > \left|{{\lambda}_n} \right|$, as $m \rightarrow \infty$, we have, $\left|\frac{{{\lambda}_j}^m}{{{\lambda}_1}^m}\right| \rightarrow 0$ and  $\left|\frac{{{\lambda}_j}^{(m-1)}}{{{\lambda}_1}^{(m-1)}}\right| \rightarrow 0$ for all $2 \leq j \leq n$\\
+\\
+Hence Eqn.(4) is reduced to ${{{\lambda}_1}^{(m)}} = {{\lambda}_1}\frac{({c_1}{v^{(1)}} + \frac{{{\lambda}_2}^{(m)}}{{{\lambda}_1}^{(m)}}{c_2}{v^{(2)}} + ....  +  \frac{{{\lambda}_n}^{(m)}}{{{\lambda}_1}^{(m)}}{c_n}{v^{(n)}})}{({c_1}{v^{(1)}} + \frac{{{\lambda}_2}^{(m-1)}}{{{\lambda}_1}^{(m-1)}}{c_2}{v^{(2)}} + ....  +  \frac{{{\lambda}_n}^{(m-1)}}{{{\lambda}_1}^{(m-1)}}{c_n}{v^{(n)}})}$\\
+$ \approx {{\lambda}_1}\frac{({c_1}{v^{(1)}} + 0.{c_2}{v^{(2)}} + ....  +  0.{c_n}{v^{(n)}})}{({c_1}{v^{(1)}} + 0.{c_2}{v^{(2)}} + ....  +  0.{c_n}{v^{(n)}})}$\\
+$ \approx {{\lambda}_1}\frac{({c_1}{v^{(1)}})}{({c_1}{v^{(1)}})}$\\
+$ \approx {{\lambda}_1}$\\
+\\
+Hence ${{{\lambda}_1}^{(m)}} \rightarrow {{\lambda}_1}$ as $m \rightarrow \infty$.\\
+\\
+{\bf c)} Refer to the program {\it q1test.m}.\\
+\\
+{\bf d)} Using the program we found out the the largest Eigen value to be: 9.6235. Attaching below the output snippet from matlab\\
+Enter the matrix: [1 2 3; 2 3 4; 3 4 5]\\
+Enter vector z: [1 1 1]'\\
+Enter value of n: 50\\
+The largest eigen value for this matrix is:\\ 
+    9.6235\\
+\\
+The corresponding eigen vector for this matrix is:\\ 
+    0.5247\\
+    0.7623\\
+    1.0000\\
+\\
+Total number of iterations:\\ 
+     8\\
+\\
+{\bf e)}
+A = $\begin{bmatrix}
+1   &     2&       3\\
+   2  &  3    &    4\\
+    3  &  4 &   5 \\
+\end{bmatrix}$ \\
+\\
+For Eigen value ad Eigen vector property, we know that $Ax = {\lambda}x$ and $Av = {\lambda}v$ where ${\lambda}$ is the Eigen value and $v$ is the Eigen vector.\\
+The determinant of $(A - {\lambda}I)$ must be equal to 0 for the matrix to have non-zero Eigen vectors.\\
+$\begin{bmatrix}
+1   &     2&       3\\
+   2  &  3    &    4\\
+    3  &  4 &   5 \\
+\end{bmatrix}$  - $\begin{bmatrix}
+{\lambda}   &     0&       0\\
+   0  &  {\lambda}    &    0\\
+    0  &  0 &   {\lambda}\\
+\end{bmatrix} = 0$\\
+$\implies$ det$\begin{bmatrix}
+1 - {\lambda}   &     2&       3\\
+   2  &  3 - {\lambda}    &    4\\
+    3  &  4 &   5 - {\lambda} \\
+\end{bmatrix}  = 0$\\
+$\implies$ $(1 - {\lambda})[(3 - {\lambda})(5 - {\lambda}) - 16] + 2[12 - 2(5 - {\lambda})] + 3[8 - 3(3 - {\lambda})] = 0$\\
+$\implies (1 - {\lambda})[15 + {\lambda}^2 - 8{\lambda} - 16] + 2[12 - 10 + 2{\lambda}] + 3[8 - 9 + 3{\lambda}] = 0$\\
+$\implies (1 - {\lambda})[{\lambda}^2 - 8{\lambda} - 1] + 4[1 + {\lambda}] + 3[3{\lambda} - 1] = 0$\\
+$\implies {\lambda}^2 - 8{\lambda} - 1 - {\lambda}^3 + 8{\lambda}^2 + {\lambda} + 4[1 + {\lambda}] + 3[3{\lambda} - 1]  = 0$\\
+$\implies - {\lambda}^3 + 9{\lambda}^2 + 6{\lambda} = 0$\\
+$\implies {\lambda}^3 - 9{\lambda}^2 - 6{\lambda} = 0$\\
+$\implies {\lambda}[{\lambda}^2 - 9{\lambda} - 6] = 0$\\
+\\
+Solving this, we get the roots: ${\lambda} = 0, -0.6235, 9.6235$.
+There are total 3 Eigen values ${\lambda}_1 = 9.6235, {\lambda}_2 = -0.6235, {\lambda}_3 = 0$.\\
+\\
+We need to find out the normalized Eigen vectors.
+We have given the procedure below:\\
+For ${\lambda}_1 = 9.6235$,
+$(A - {{\lambda}_1}I)v^{(1)} = 0$\\
+$\implies \begin{bmatrix}
+1 - 9.6235   &     2&       3\\
+   2  &  3 - 9.6235    &    4\\
+    3  &  4 &   5 - 9.6235 \\
+\end{bmatrix}\begin{bmatrix}
+v_1 \\
+   v_2\\
+    v_3 \\
+\end{bmatrix} = 0$\\
+Let's take $v_1$ = 1, 
+We get three equations from the matrix above. The equations are:\\
+$2v_2 + 3v_3 = 8.6235$ -Eqn.(1)\\
+$-6.6235v_2 + 4v_3 = -2$ -Eqn.(2)\\
+$4v_2 - 4.6235v_3 = -3$ -Eqn.(3)\\
+\\
+Solving this we get, $v_2 = 1.4529$, $v_3 = 1.9059$ \\
+Hence, 
+$v^{(1)} =  \begin{bmatrix}
+\frac{v_1}{\sqrt{{v_1}^2 + {v_2}^2} + {v_3}^2} \\
+\\
+   \frac{v2}{\sqrt{{v_1}^2 + {v_2}^2} + {v_3}^2}\\
+\\
+    \frac{v_3}{\sqrt{{v_1}^2 + {v_2}^2} + {v_3}^2} \\
+\end{bmatrix} = \begin{bmatrix}
+0.3851 \\
+  0.5595\\
+    0.7339 \\
+\end{bmatrix}$\\
+\\
+\\
+For ${\lambda}_2 = -0.6235$, let's solve for corrsponding eigen vector $v^{(2)}$ using $(A - {{\lambda}_2}I)v^{(2)} = 0$\\We have the matrix,\\
+$\begin{bmatrix}
+1 + 0.6235   &     2&       3\\
+   2  &  3 + 0.6235    &    4\\
+    3  &  4 &   5 + 0.6235 \\
+\end{bmatrix}\begin{bmatrix}
+v_1 \\
+   v_2\\
+    v_3 \\
+\end{bmatrix} = 0$\\
+we have the following equations after setting $v_1$ to 1,\\
+\\
+$2v_2 + 3v_3 = -1.6235$ -Eqn.(4)\\
+$3.6235v_2 + 4v_3 = -2$ -Eqn.(5)\\
+$4v_2 + 5.6235v_3 = -3$ -Eqn.(6)\\
+\\
+Solving which we get $v_2 = 0.1723$ and $v_3 = -.6560$.Using these values
+We have the normalized Eigen vector\\ $v^{(2)} =  \begin{bmatrix}
+\frac{v_1}{\sqrt{{v_1}^2 + {v_2}^2} + {v_3}^2} \\
+\\
+   \frac{v2}{\sqrt{{v_1}^2 + {v_2}^2} + {v_3}^2}\\
+\\
+    \frac{v_3}{\sqrt{{v_1}^2 + {v_2}^2} + {v_3}^2} \\
+\end{bmatrix} = \begin{bmatrix}
+0.8277 \\
+  0.1424\\
+    -0.5428 \\
+\end{bmatrix}$\\
+\\
+\\
+For ${\lambda}_3 = 0$, let's solve for corrsponding eigen vector $v^{(3)}$ using $(A - {{\lambda}_3}I)v^{(3)} = 0$\\We have the matrix,\\
+$\begin{bmatrix}
+1   &     2&       3\\
+   2  &  3    &    4\\
+    3  &  4 &   5 \\
+\end{bmatrix}\begin{bmatrix}
+v_1 \\
+   v_2\\
+    v_3 \\
+\end{bmatrix} = 0$\\
+we have the following equations after setting $v_1$ to 1,\\
+$2v_2 + 3v_3 = -1$\\
+$3v_2 + 4v_3 = -2$\\
+$4v_2 + 5v_3 = -3$\\
+\\
+Solving which we get $v_2 = -2$ and $v_3 = 1$.Using these values we figure out that for the Eigen value ${\lambda}_3 = 0$, the corresponding normlized Eigen vector $v^{(3)} = =  \begin{bmatrix}
+\frac{v_1}{\sqrt{{v_1}^2 + {v_2}^2} + {v_3}^2} \\
+\\
+   \frac{v2}{\sqrt{{v_1}^2 + {v_2}^2} + {v_3}^2}\\
+\\
+    \frac{v_3}{\sqrt{{v_1}^2 + {v_2}^2} + {v_3}^2} \\
+\end{bmatrix} = \begin{bmatrix}
+0.4082 \\
+  -0.8165\\
+    0.4082 \\
+\end{bmatrix}$\\
+\end{document}
